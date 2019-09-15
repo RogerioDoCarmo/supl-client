@@ -36,7 +36,7 @@ import com.google.location.suplclient.ephemeris.GloEphemeris;
 import com.google.location.suplclient.ephemeris.GnssEphemeris;
 import com.google.location.suplclient.ephemeris.GpsEphemeris;
 import com.google.location.suplclient.ephemeris.KeplerianModel;
-import com.google.location.suplclient.supl.Ephemeris.IonosphericModelProto;
+//import com.google.location.suplclient.supl.Ephemeris.IonosphericModelProto;
 import com.google.location.suplclient.supl.SuplConstants.GnssConstants;
 import com.google.location.suplclient.supl.SuplConstants.LppConstants;
 import com.google.location.suplclient.supl.SuplConstants.ScaleFactors;
@@ -59,27 +59,27 @@ class SuplLppClientHelper {
    * Builds an instance of {@link IonosphericModelProto} containing Klobuchar model parameters
    * extracted from {@link KlobucharModelParameter}.
    */
-  static IonosphericModelProto buildIonoModelProto(KlobucharModelParameter iono) {
-    IonosphericModelProto.Builder ionoBuilder = IonosphericModelProto.newBuilder();
-    double[] alpha = new double[4];
-    alpha[0] = iono.getAlfa0().getInteger().byteValue() * ScaleFactors.IONO_ALFA_0;
-    alpha[1] = iono.getAlfa1().getInteger().byteValue() * ScaleFactors.IONO_ALFA_1;
-    alpha[2] = iono.getAlfa2().getInteger().byteValue() * ScaleFactors.IONO_ALFA_2;
-    alpha[3] = iono.getAlfa3().getInteger().byteValue() * ScaleFactors.IONO_ALFA_3;
-    for (int i = 0; i < alpha.length; ++i) {
-      ionoBuilder.addAlpha(alpha[i]);
-    }
-
-    double[] beta = new double[4];
-    beta[0] = iono.getBeta0().getInteger().byteValue() * ScaleFactors.IONO_BETA_0;
-    beta[1] = iono.getBeta1().getInteger().byteValue() * ScaleFactors.IONO_BETA_1;
-    beta[2] = iono.getBeta2().getInteger().byteValue() * ScaleFactors.IONO_BETA_2;
-    beta[3] = iono.getBeta3().getInteger().byteValue() * ScaleFactors.IONO_BETA_3;
-    for (int i = 0; i < beta.length; ++i) {
-      ionoBuilder.addBeta(beta[i]);
-    }
-    return ionoBuilder.build();
-  }
+//  static IonosphericModelProto buildIonoModelProto(KlobucharModelParameter iono) {
+//    IonosphericModelProto.Builder ionoBuilder = IonosphericModelProto.newBuilder();
+//    double[] alpha = new double[4];
+//    alpha[0] = iono.getAlfa0().getInteger().byteValue() * ScaleFactors.IONO_ALFA_0;
+//    alpha[1] = iono.getAlfa1().getInteger().byteValue() * ScaleFactors.IONO_ALFA_1;
+//    alpha[2] = iono.getAlfa2().getInteger().byteValue() * ScaleFactors.IONO_ALFA_2;
+//    alpha[3] = iono.getAlfa3().getInteger().byteValue() * ScaleFactors.IONO_ALFA_3;
+//    for (int i = 0; i < alpha.length; ++i) {
+//      ionoBuilder.addAlpha(alpha[i]);
+//    }
+//
+//    double[] beta = new double[4];
+//    beta[0] = iono.getBeta0().getInteger().byteValue() * ScaleFactors.IONO_BETA_0;
+//    beta[1] = iono.getBeta1().getInteger().byteValue() * ScaleFactors.IONO_BETA_1;
+//    beta[2] = iono.getBeta2().getInteger().byteValue() * ScaleFactors.IONO_BETA_2;
+//    beta[3] = iono.getBeta3().getInteger().byteValue() * ScaleFactors.IONO_BETA_3;
+//    for (int i = 0; i < beta.length; ++i) {
+//      ionoBuilder.addBeta(beta[i]);
+//    }
+//    return ionoBuilder.build();
+//  }
 
   /**
    * Obtains the reference of {@link A_GNSS_ProvideAssistanceData} from {@link SUPLPOS}.

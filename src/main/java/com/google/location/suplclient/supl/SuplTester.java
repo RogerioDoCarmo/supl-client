@@ -16,6 +16,8 @@ package com.google.location.suplclient.supl;
 
 
 import com.google.location.suplclient.ephemeris.EphemerisResponse;
+import com.google.location.suplclient.ephemeris.GnssEphemeris;
+import java.util.List;
 
 /**
  * SUPL Tester to verify SUPL connections.
@@ -56,5 +58,13 @@ public final class SuplTester {
     // Try to call methods to access SUPL server and see if they report any exception
     suplController.sendSuplRequest(latE7, lngE7);
     EphemerisResponse ephResponse = suplController.generateEphResponse(latE7, lngE7);
+    
+    System.out.println("\n\n");
+    for (int i = 0; i < ephResponse.ephList.size(); i++) {
+        System.out.println(ephResponse.ephList.get(i));
+    }
+    
+    List<GnssEphemeris> listEphemris = ephResponse.ephList;
+    
   }
 }
